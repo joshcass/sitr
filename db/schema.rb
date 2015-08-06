@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806175030) do
+ActiveRecord::Schema.define(version: 20150806190140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feed_times", force: :cascade do |t|
+    t.time     "time"
+    t.integer  "pet_feeder_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "feed_times", ["pet_feeder_id"], name: "index_feed_times_on_pet_feeder_id", using: :btree
 
   create_table "pet_feeders", force: :cascade do |t|
     t.string   "url"
@@ -44,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150806175030) do
 
   add_index "video_feeds", ["user_id"], name: "index_video_feeds_on_user_id", using: :btree
 
+  add_foreign_key "feed_times", "pet_feeders"
   add_foreign_key "pet_feeders", "users"
   add_foreign_key "video_feeds", "users"
 end
