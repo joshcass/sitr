@@ -9,6 +9,7 @@
     </head>
     <body class="<%= "#{controller.controller_name} #{controller.action_name}" %>">
         <%= render 'layouts/nav'  %>
-            <%= yield %>
+        <%= render 'layouts/messages'  %>
+        <%= yield %>
     </body>
 </html>

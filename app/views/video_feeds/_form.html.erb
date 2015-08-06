@@ -1,0 +1,12 @@
+<div class="modal-content">
+    <%= form_for video_feed do |f|  %>
+        <%= f.label :location  %>
+        <%= f.text_field :location, placeholder: "Living Room"  %>
+        <%= f.label :url  %>
+        <%= f.text_field :url, placeholder: "http://your-awseome-feed.com"  %>
+</div>
+<div class="modal-footer">
+    <%= f.submit class: 'btn z-depth-0'%>
+    <% end %>
+    <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">cancel</a>
+</div>

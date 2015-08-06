@@ -1,0 +1,5 @@
+<script>
+ <% flash.each do |key, value| %>
+ Materialize.toast("<%= value  %>", 5000, 'red darken-3')
+ <% end %>
+</script>

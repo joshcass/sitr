@@ -14,6 +14,7 @@ gem 'materialize-sass'
 gem 'puma'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'valid_url'
 
 gem 'rails_12factor', group: :production
 

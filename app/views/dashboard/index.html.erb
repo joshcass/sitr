@@ -1,7 +1,7 @@
 <div class="row">
-<div class="col s2 right">
-    <div class="card-panel teal">
-        <span class="white-text">I'm going to be feeding info and a handy button
+    <div class="col s2 right">
+        <div class="card-panel teal">
+            <span class="white-text">I'm going to be feeding info and a handy button
 </br>
 </br>
 </br>
@@ -30,53 +30,12 @@
 </br>
 </br>
 </br>
-        </span>
+            </span>
+        </div>
     </div>
-</div>
-<div class="col s12 m5">
-    <div class="card-panel teal">
-        <span class="white-text">I'm going to be a video feed.
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-        </span>
-    </div>
-</div>
-<div class="col s12 m5">
-    <div class="card-panel teal">
-        <span class="white-text">I'm also going to be a video feed.
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-        </span>
-    </div>
-</div>
+    <ul>
+       <%= render partial: 'video', collection: current_user.video_feeds %>
+    </ul>
     <div class="col s10">
         <div class="card-panel teal">
             <span class="white-text">I'm going to be a graph of water information.

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805004418) do
+ActiveRecord::Schema.define(version: 20150805194511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,4 +24,15 @@ ActiveRecord::Schema.define(version: 20150805004418) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "video_feeds", force: :cascade do |t|
+    t.string   "location"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "video_feeds", ["user_id"], name: "index_video_feeds_on_user_id", using: :btree
+
+  add_foreign_key "video_feeds", "users"
 end
