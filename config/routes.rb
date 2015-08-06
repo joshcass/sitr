@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
   resources :settings, only: [:index]
   resources :video_feeds, only: [:create, :update, :destroy]
-  resources :pet_feeders, only: [:create, :update, :destroy]
+  resources :pet_feeders, only: [:create, :update, :destroy] do
+    resources :feed_times, only: [:create, :update, :destroy]
+  end
+
 end
