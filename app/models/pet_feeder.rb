@@ -1,7 +1,7 @@
-class VideoFeed < ActiveRecord::Base
+class PetFeeder < ActiveRecord::Base
   belongs_to :user
 
   validates :url, presence: true
   validates :url, url: true
-  validates :location, uniqueness: true
+  validates :name, uniqueness: true
 end

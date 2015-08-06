@@ -1,0 +1,12 @@
+<div class="modal-content">
+    <%= form_for pet_feeder do |f|  %>
+        <%= f.label :name  %>
+        <%= f.text_field :name, placeholder: "Feeder 1"  %>
+        <%= f.label :url  %>
+        <%= f.text_field :url, placeholder: "http://your-pet-feeder.com"  %>
+</div>
+<div class="modal-footer">
+    <%= f.submit class: 'btn z-depth-0'%>
+    <% end %>
+    <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">cancel</a>
+</div>

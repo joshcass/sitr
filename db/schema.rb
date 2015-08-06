@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805194511) do
+ActiveRecord::Schema.define(version: 20150806175030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pet_feeders", force: :cascade do |t|
+    t.string   "url"
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "pet_feeders", ["user_id"], name: "index_pet_feeders_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -34,5 +44,6 @@ ActiveRecord::Schema.define(version: 20150805194511) do
 
   add_index "video_feeds", ["user_id"], name: "index_video_feeds_on_user_id", using: :btree
 
+  add_foreign_key "pet_feeders", "users"
   add_foreign_key "video_feeds", "users"
 end

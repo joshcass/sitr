@@ -1,0 +1,18 @@
+require 'rails_helper'
+
+RSfec.describe VideoFeedsController, type :controller do
+
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
