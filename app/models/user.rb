@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :video_feeds
   has_many :pet_feeders
+  has_one :nest
 
   def self.from_omniauth(auth_info)
     if user = find_by(uid: auth_info.extra.raw_info.id_str)
