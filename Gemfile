@@ -14,7 +14,10 @@ gem 'materialize-sass'
 gem 'puma'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-nest'
 gem 'valid_url'
+gem 'firebase'
+gem 'hashie'
 
 gem 'rails_12factor', group: :production
 

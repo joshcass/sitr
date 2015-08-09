@@ -6,7 +6,7 @@
                 <ul class="collection">
                     <% current_user.video_feeds.each do |video_feed| %>
                         <li class="collection-item avatar">
-                            <i class="material-icons circle green">play_arrow</i>
+                            <i class="material-icons circle green">videocam</i>
                             <span class="title black-text"><%= video_feed.location  %></span>
                             <p class="black-text" style="font-size: 80%"><%= video_feed.url  %></p>
                             <p class="secondary-content">
@@ -46,6 +46,30 @@
                                     <%= render partial: 'pet_feeders/form', locals: {pet_feeder: pet_feeder}  %>
                                 </div>
                             </p>
+                                </br>
+                                <ul class="collection with-header">
+                                    <li class="collection-header black-text">
+                                        <h6>Feed Times</h6>
+                                        <a class="modal-trigger secondary-content" href="#newTime"><i class="material-icons">playlist_add</i></a>
+                                        <div id="newTime" class="modal black-text">
+                                            <%= render partial: 'feed_times/form', locals: {feed_time: @feed_time, pet_feeder: pet_feeder}  %>
+                                        </div>
+                                    </li>
+                                    <% pet_feeder.feed_times.each do |feed_time|  %>
+                                        <li class="collection-item">
+                                            <div class="black-text">
+                                                <%= time_tag feed_time.time, format: '%-l:%M%p'  %>
+                                                <%= link_to [pet_feeder, feed_time], class: 'right', method: 'DELETE' do  %>
+                                                    <i class="material-icons">delete</i>
+                                                <% end %>
+                                                <a class="modal-trigger right" href="#time_<%= pet_feeder.id %>"><i class="material-icons">mode_edit</i></a>
+                                                <div id="time_<%= pet_feeder.id %>" class="modal black-text">
+                                                    <%= render partial: 'feed_times/form', locals: {feed_time: feed_time, pet_feeder: pet_feeder}  %>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    <% end %>
+                                </ul>
                         </li>
                     <% end %>
                 </ul>
@@ -58,11 +82,23 @@
     <div class="col s4">
         <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-                <span class="card-title">Water Monitors</span>
-                <p>List of users water monitors</p>
+                <span class="card-title">Nest Connect</span>
+                <ul class="collection">
+                    <% if current_user.nest  %>
+                        <li class="collection-item avatar" id="nest">
+                            <i class="material-icons circle green">toll</i>
+                            <span class="title black-text"><%= current_user.nest.name  %></span>
+                            <p class="secondary-content">
+                                <%= link_to current_user.nest, method: 'DELETE' do %>
+                                    <i class="material-icons">delete</i>
+                                <% end %>
+                            </p>
+                        </li>
+                    <% end %>
+                </ul>
             </div>
             <div class="card-action">
-                <a href="#">Add New Water Monitor</a>
+                <%= link_to 'Authorize Nest Connect', '/auth/nest' unless current_user.nest  %>
             </div>
         </div>
     </div>
