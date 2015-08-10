@@ -25,6 +25,11 @@ class PetFeedersController < ApplicationController
     redirect_to settings_path
   end
 
+  def feed
+   @pet_feeder.feed_now
+   render json: Time.zone.now.strftime('%-l:%M%p').to_json
+  end
+
   private
 
   def valid_params

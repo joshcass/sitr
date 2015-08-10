@@ -1,54 +1,13 @@
 <div class="row">
-    <div class="col s2 right">
-        <div class="card-panel teal">
-            <span class="white-text">I'm going to be feeding info and a handy button
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-            </span>
-        </div>
-    </div>
     <ul>
-       <%= render partial: 'video', collection: current_user.video_feeds %>
+        <%= render partial: 'video', collection: current_user.video_feeds %>
     </ul>
-    <div class="col s10">
+    <div class="col s12">
         <div class="card-panel teal">
-            <span class="white-text">I'm going to be a graph of water information.
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+            <span class="white-text">
+                <ul>
+                    <%= render partial: 'feeder', collection: current_user.pet_feeders  %>
+                </ul>
             </span>
         </div>
     </div>

@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     resources :feed_times, only: [:create, :update, :destroy]
   end
   resources :nest, only: [:create, :destroy]
+  get '/pet_feeder/:id/feed', to: 'pet_feeders#feed', as: 'feed'
 end
