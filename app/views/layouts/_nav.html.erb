@@ -4,16 +4,15 @@
             <%= image_tag 'logo_small.png', style: "height: 50px; margin-top: 5%; margin-left: 10%;" %>
         <% end %>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        <h5 class="center brand-logo"><%= current_user.nest.current_temperature.to_s + '°' if current_user && current_user.nest %></h5>
+        <h5 class="right brand-logo" style="margin-right: 15%; margin-top: 15px"><%= current_user.nest.current_temperature.to_s + '°' if current_user && current_user.nest %></h5>
         <ul id="nav-large" class="right hide-on-med-and-down">
             <li><a href="/dashboard" id="dashboard" class="tooltipped" data-position="bottom" data-delay="500" data-tooltip="Dashboard"><i class="material-icons">dashboard</i></a></li>
             <li><a href="/settings" id="settings" class="tooltipped" data-position="bottom" data-delay="500" data-tooltip="Settings"><i class="material-icons">settings</i></a></li>
             <li><a href="/logout" id="logout" class="tooltipped" data-position="bottom" data-delay="500" data-tooltip="Logout"><i class="material-icons">power_settings_new</i></li>
         </ul>
         <ul id="nav-mobile" class="side-nav">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Account</a></li>
+            <li><%= link_to "Dashboard", dashboard_index_path  %></li>
+            <li><%= link_to "Settings", settings_path  %></li>
             <li><%= link_to "Logout", logout_path %></li>
         </ul>
     </div>

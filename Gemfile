@@ -18,6 +18,7 @@ gem 'omniauth-nest'
 gem 'valid_url'
 gem 'firebase'
 gem 'hashie'
+gem 'httparty'
 
 gem 'rails_12factor', group: :production
 
