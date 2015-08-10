@@ -27,7 +27,7 @@ class PetFeedersController < ApplicationController
 
   def feed
    @pet_feeder.feed_now
-   render json: Time.zone.now.strftime('%-l:%M%p').to_json
+   render json: Time.now.in_time_zone(current_user.time_zone).strftime('%-l:%M%p').to_json
   end
 
   private

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
       user = create({name: auth_info.extra.raw_info.name,
         screen_name: auth_info.extra.raw_info.screen_name,
         uid: auth_info.extra.raw_info.id_str,
+        time_zone: auth_info.extra.raw_info.time_zone
       })
       user
     end
