@@ -26,8 +26,12 @@ class PetFeedersController < ApplicationController
   end
 
   def feed
-   @pet_feeder.feed_now
-   render json: @pet_feeder.last_feeding.in_time_zone(current_user.time_zone).strftime('%-l:%M%p').to_json
+    response = @pet_feeder.feed_now
+    if response == 200
+      render json: @pet_feeder.last_feeding.in_time_zone(current_user.time_zone).strftime('%-l:%M%p').to_json
+    else
+      render nothing: true, status: response
+    end
   end
 
   private

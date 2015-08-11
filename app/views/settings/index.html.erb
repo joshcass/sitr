@@ -58,7 +58,7 @@
                                     <% pet_feeder.feed_times.each do |feed_time|  %>
                                         <li class="collection-item">
                                             <div class="black-text">
-                                                <%= time_tag feed_time.time, format: '%-l:%M%p'  %>
+                                                <%= time_tag feed_time.time.in_time_zone(current_user.time_zone), format: '%-l:%M%p'  %>
                                                 <%= link_to [pet_feeder, feed_time], class: 'right', method: 'DELETE' do  %>
                                                     <i class="material-icons">delete</i>
                                                 <% end %>

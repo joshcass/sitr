@@ -1,4 +1,15 @@
-<li>
-    <h5 id="last-feeding"><%= last_feeding(feeder) %></h5>
-    <button id="feed-button" class="btn light-green darken-three waves-effect waves-light" data-id="<%= feeder.id %>">Feed Now</button>
-</li>
+<div class="row">
+    <li>
+        <div class="col s4 center">
+            <h5>Last Fed At:</h5>
+            <h5 id="last-feeding"><%= last_feeding(feeder) %></h5>
+        </div>
+        <div class="col s4 center">
+            <h5>Next Scheduled Feeding:</h5>
+            <h5><%= next_feeding(feeder)  %></h5>
+        </div>
+        <div class="col s4 center">
+            <button id="feed-button" class="btn light-green darken-three waves-effect waves-light" data-id="<%= feeder.id %>">Feed Now</button>
+        </div>
+    </li>
+</div>
