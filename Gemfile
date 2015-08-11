@@ -19,7 +19,7 @@ gem 'valid_url'
 gem 'firebase'
 gem 'hashie'
 gem 'httparty'
-gem 'skylight'
+gem 'skylight', '0.7.1'
 
 gem 'rails_12factor', group: :production
 
