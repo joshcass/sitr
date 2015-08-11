@@ -28,4 +28,12 @@ module ApplicationHelper
       ['11:00PM', '11:00PM']
     ]
   end
+
+  def last_feeding(pet_feeder)
+    if pet_feeder.last_feeding.nil?
+      "None"
+    else
+      time_tag pet_feeder.last_feeding.in_time_zone(current_user.time_zone), format: '%-l:%M%p'
+    end
+  end
 end
