@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def parse_time(time)
-    time.to_time.in_time_zone(current_user.time_zone).utc
+    time.in_time_zone(current_user.time_zone).utc
   end
 end
