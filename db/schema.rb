@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811023527) do
+ActiveRecord::Schema.define(version: 20150811174746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "feed_times", force: :cascade do |t|
-    t.time     "time"
     t.integer  "pet_feeder_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.datetime "time"
   end
 
   add_index "feed_times", ["pet_feeder_id"], name: "index_feed_times_on_pet_feeder_id", using: :btree

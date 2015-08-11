@@ -8,11 +8,11 @@ class PetFeeder < ActiveRecord::Base
 
   def feed_now
     if password.empty?
-      feed
+      response = feed
     else
-      auth_feed
+      response = auth_feed
     end
-    update(last_feeding: Time.now)
+    check_response(response)
   end
 
   def auth_feed
@@ -21,5 +21,22 @@ class PetFeeder < ActiveRecord::Base
 
   def feed
     HTTParty.post(url, query: {token: token})
+  end
+
+  def check_response(response)
+    if response.success?
+      update_feed_time
+      response.code
+    else
+      response.code
+    end
+  end
+
+  def update_feed_time
+    update(last_feeding: Time.now)
+  end
+
+  def next_feeding
+    feed_times.detect { |t| t.time.in_time_zone(user.time_zone).strftime( "%H%M%S%N" ) > Time.now.in_time_zone(user.time_zone).strftime( "%H%M%S%N" ) }
   end
 end
