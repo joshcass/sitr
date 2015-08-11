@@ -1,4 +1,4 @@
 <li>
-    <h5 id="last-feeding"><%= time_tag feeder.last_feeding.in_time_zone(current_user.time_zone), format: '%-l:%M%p'  %></h5>
+    <h5 id="last-feeding"><%= last_feeding(feeder) %></h5>
     <button id="feed-button" class="btn light-green darken-three waves-effect waves-light" data-id="<%= feeder.id %>">Feed Now</button>
 </li>
