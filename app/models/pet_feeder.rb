@@ -8,6 +8,7 @@ class PetFeeder < ActiveRecord::Base
   validates :name, uniqueness: true
 
   def feed_now
-    HTTParty.get(url, query: {feed: 'Fed!'} )
+    auth = {username: 'sitrfeeder', password: 'b6nv@HJHqBLE0JOsC6' }
+    HTTParty.post(url, query: {token: 'aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d'}, basic_auth: auth )
   end
 end
