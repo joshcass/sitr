@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  require 'resque/server'
+  mount Resque::Server.new, at: '/resque'
+
   root to: 'welcome#index'
   get '/auth/twitter', as: 'login'
   get '/auth/twitter/callback', to: 'sessions#create'
