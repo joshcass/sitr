@@ -31,7 +31,7 @@ module ApplicationHelper
 
   def last_feeding(pet_feeder)
     if pet_feeder.last_feeding.nil?
-      "None"
+      'None'
     else
       time_tag pet_feeder.last_feeding.in_time_zone(current_user.time_zone), format: '%-l:%M%p'
     end
@@ -39,7 +39,7 @@ module ApplicationHelper
 
   def next_feeding(pet_feeder)
     if pet_feeder.next_feeding.nil?
-      "No schuduled feed times"
+      'No feedings scheduled'
     else
       time_tag pet_feeder.next_feeding.time.in_time_zone(current_user.time_zone), format: '%-l:%M%p'
     end

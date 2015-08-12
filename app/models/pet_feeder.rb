@@ -12,7 +12,7 @@ class PetFeeder < ActiveRecord::Base
     else
       response = auth_feed
     end
-    check_response(response)
+    response_status?(response)
   end
 
   def auth_feed
@@ -23,7 +23,7 @@ class PetFeeder < ActiveRecord::Base
     HTTParty.post(url, query: {token: token})
   end
 
-  def check_response(response)
+  def response_status?(response)
     if response.success?
       update_feed_time
       response.code
@@ -33,10 +33,10 @@ class PetFeeder < ActiveRecord::Base
   end
 
   def update_feed_time
-    update(last_feeding: Time.now)
+    update(last_feeding: Time.zone.now)
   end
 
   def next_feeding
-    feed_times.detect { |t| t.time.in_time_zone(user.time_zone).strftime( "%H%M%S%N" ) > Time.now.in_time_zone(user.time_zone).strftime( "%H%M%S%N" ) }
+    feed_times.detect { |feed_time| feed_time.time_today > Time.zone.now }
   end
 end

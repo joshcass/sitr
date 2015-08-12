@@ -4,4 +4,8 @@ class FeedTime < ActiveRecord::Base
   validates :time, presence: true, uniqueness: true
 
   default_scope { order(:time) }
+
+  def time_today
+    Time.zone.parse(time.strftime('%R'))
+  end
 end
