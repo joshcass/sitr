@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to root_path, notice: 'Please log in or signup' unless current_user
   end
+
+  def parse_time(time)
+    ActiveSupport::TimeZone.new(current_user.time_zone).parse(time).utc
+  end
 end
