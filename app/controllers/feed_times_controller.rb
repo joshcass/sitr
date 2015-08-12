@@ -3,7 +3,7 @@ class FeedTimesController < ApplicationController
   before_action :find_feed_time, except: [:create]
 
   def create
-    time = parse_time(valid_params[:time])
+    time = valid_params[:time].to_time
     feed_time = @pet_feeder.feed_times.new(time: time)
     if feed_time.save
       redirect_to settings_path
