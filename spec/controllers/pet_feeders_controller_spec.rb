@@ -41,4 +41,15 @@ describe PetFeedersController do
       expect(response).to redirect_to(settings_path)
     end
   end
+
+
+  context '#feed' do
+    it 'can send a request to a pet feeder' do
+      pet_feeder = @user.pet_feeders.create(url: 'http://httpbin.org/post', name: 'Feeder 1', password: '' )
+
+      post :feed, id: pet_feeder.id
+
+      expect(response.status).to eq(200)
+    end
+  end
 end
