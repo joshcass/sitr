@@ -23,13 +23,5 @@ describe 'the_application', type: :feature do
     it 'has a link to authorize nest' do
       expect(page).to have_link("Authorize Nest Connect", href: '/auth/nest')
     end
-
-    it 'can authorize a nest' do
-      click_link "Authorize Nest Connect"
-      expect(Nest.all.count).to eq 1
-
-      user = User.find(@user.id)
-      expect(user.nest).to be_a(Nest)
-    end
   end
 end
