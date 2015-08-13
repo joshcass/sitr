@@ -12,7 +12,8 @@ class PetFeeder < ActiveRecord::Base
     else
       response = auth_feed
     end
-    response_status?(response)
+    update_last_feeding if response.success?
+    response
   end
 
   def auth_feed
@@ -21,15 +22,6 @@ class PetFeeder < ActiveRecord::Base
 
   def feed
     HTTParty.post(url, query: {token: token})
-  end
-
-  def response_status?(response)
-    if response.success?
-      update_last_feeding
-      response.code
-    else
-      response.code
-    end
   end
 
   def update_last_feeding

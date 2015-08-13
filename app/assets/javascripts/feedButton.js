@@ -9,7 +9,7 @@ $( document ).ready(function(){
                 Materialize.toast('Feeding Successful!', 4000, 'light-green darken-3');
             },
             error: function(response){
-                Materialize.toast(response.status + " " + response.statusText, 4000, 'red darken-3');
+                Materialize.toast(response.status + ' ' + response.statusText, 4000, 'red darken-3');
             }
         });
     });

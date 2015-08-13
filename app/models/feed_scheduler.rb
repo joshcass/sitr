@@ -4,7 +4,7 @@ class FeedScheduler
     feed_times = FeedTime.all
 
     feed_times.each do |feed_time|
-        feed_time.pet_feeder.feed_now if can_feed?(feed_time)
+      feed_time.pet_feeder.feed_now if can_feed?(feed_time)
     end
   end
 
