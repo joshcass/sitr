@@ -2,13 +2,7 @@
     <ul>
         <%= render partial: 'video', collection: current_user.video_feeds %>
     </ul>
-    <div class="col s12">
-        <div class="card-panel teal">
-            <span class="white-text">
-                <ul>
-                    <%= render partial: 'feeder', collection: current_user.pet_feeders  %>
-                </ul>
-            </span>
-        </div>
-    </div>
+    <ul>
+        <%= render partial: 'feeder', collection: current_user.pet_feeders  %>
+    </ul>
 </div>

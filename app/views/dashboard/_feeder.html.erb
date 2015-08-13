@@ -1,15 +1,21 @@
-<div class="row">
-    <li>
-        <div class="col s4 center">
-            <h5>Last Fed At:</h5>
-            <h5 id="last-feeding"><%= last_feeding(feeder) %></h5>
+<li>
+    <div class="col s12">
+        <div class="card-panel blue-grey darken-1">
+            <span class="white-text">
+                <div class="row">
+                    <div class="col s4 center">
+                        <h5>Last Fed At:</h5>
+                        <h5 id="last-feeding"><%= last_feeding(feeder) %></h5>
+                    </div>
+                    <div class="col s4 center">
+                        <h5>Next Feeding:</h5>
+                        <h5><%= next_feeding(feeder)  %></h5>
+                    </div>
+                    <div class="col s4 center">
+                        <button id="feed-button" class="btn amber darken-2 waves-effect waves-light" data-id="<%= feeder.id %>">Feed Now</button>
+                    </div>
+                </div>
+            </span>
         </div>
-        <div class="col s4 center">
-            <h5>Next Feeding:</h5>
-            <h5><%= next_feeding(feeder)  %></h5>
-        </div>
-        <div class="col s4 center">
-            <button id="feed-button" class="btn light-green darken-three waves-effect waves-light" data-id="<%= feeder.id %>">Feed Now</button>
-        </div>
-    </li>
-</div>
+    </div>
+</li>
