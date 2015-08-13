@@ -8,7 +8,6 @@
                         <li class="collection-item avatar">
                             <i class="material-icons circle green">videocam</i>
                             <span class="title black-text"><%= video_feed.location  %></span>
-                            <p class="black-text" style="font-size: 80%"><%= video_feed.url  %></p>
                             <p class="secondary-content">
                                 <a class="modal-trigger" href="#video_<%= video_feed.id %>"><i class="material-icons">mode_edit</i></a></br>
                                 <%= link_to video_feed, method: 'DELETE' do  %>
@@ -36,7 +35,6 @@
                         <li class="collection-item avatar">
                             <i class="material-icons circle green">group_work</i>
                             <span class="title black-text"><%= pet_feeder.name  %></span>
-                            <p class="black-text" style="font-size: 80%"><%= pet_feeder.url  %></p>
                             <p class="secondary-content">
                                 <a class="modal-trigger" href="#feeder_<%= pet_feeder.id %>"><i class="material-icons">mode_edit</i></a></br>
                                 <%= link_to pet_feeder, method: 'DELETE' do  %>
@@ -46,6 +44,7 @@
                                     <%= render partial: 'pet_feeders/form', locals: {pet_feeder: pet_feeder}  %>
                                 </div>
                             </p>
+                                </br>
                                 </br>
                                 <ul class="collection with-header">
                                     <li class="collection-header black-text">

@@ -25,14 +25,14 @@ class PetFeeder < ActiveRecord::Base
 
   def response_status?(response)
     if response.success?
-      update_feed_time
+      update_last_feeding
       response.code
     else
       response.code
     end
   end
 
-  def update_feed_time
+  def update_last_feeding
     update(last_feeding: Time.zone.now)
   end
 
