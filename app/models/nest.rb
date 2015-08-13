@@ -1,8 +1,8 @@
 class Nest < ActiveRecord::Base
   belongs_to :user
 
-  def self.from_omniauth(auth_info)
-    Nest.create(token: auth_info.credentials.token, expiration: auth_info.credentials.expires_at, user_id: current_user.id)
+  def self.from_omniauth(auth_info, user)
+    Nest.create(token: auth_info.credentials.token, expiration: auth_info.credentials.expires_at, user_id: user.id)
   end
 
   def client

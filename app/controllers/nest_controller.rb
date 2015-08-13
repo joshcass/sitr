@@ -1,6 +1,6 @@
 class NestController < ApplicationController
   def create
-    Nest.from_omniauth(request.env['omniauth.auth'])
+    Nest.from_omniauth(request.env['omniauth.auth'], current_user)
     redirect_to settings_path
   end
 
