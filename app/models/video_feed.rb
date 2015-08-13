@@ -4,5 +4,4 @@ class VideoFeed < ActiveRecord::Base
   validates :url, presence: true
   validates :url, url: true
   validates :location, uniqueness: true
-
 end

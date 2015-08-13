@@ -27,10 +27,10 @@ class PetFeedersController < ApplicationController
 
   def feed
     response = @pet_feeder.feed_now
-    if response == 200
+    if response.success?
       render json: @pet_feeder.last_feeding.in_time_zone(current_user.time_zone).strftime('%-l:%M%p').to_json
     else
-      render nothing: true, status: response
+      render nothing: true, status: response.code
     end
   end
 
