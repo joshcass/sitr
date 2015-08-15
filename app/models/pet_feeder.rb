@@ -29,6 +29,7 @@ class PetFeeder < ActiveRecord::Base
   end
 
   def next_feeding
-    feed_times.detect { |feed_time| feed_time.time_today.in_time_zone(user.time_zone) > ActiveSupport::TimeZone.new(user.time_zone).now }
+    feed_times.detect { |feed_time| feed_time.time.in_time_zone(user.time_zone).strftime('%R') > Time.zone.now.in_time_zone(user.time_zone).strftime('%R') }
   end
 end
+
