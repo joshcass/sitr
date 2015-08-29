@@ -6,4 +6,4 @@ Live Production URL: http://sitr.link
 
 == Screen Shots of Live App
 
-* The app requires the associated hardware to see it in action so I've provided some screenshots below
+The app requires the associated hardware to see it in action so I've provided some screenshots below:
