@@ -1,28 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An IOT application that utilizes Raspberry Pi computers to stream video and provide remote control of an automated pet feeder. A Sinatra app endpoint controls the pet feeder and scheduled feedings can be programmed and triggered by the Rails application through the use of Clockwork and Resque.
 
-Things you may want to cover:
+Live Production URL: http://sitr.link
 
-* Ruby version
+== Screen Shots of Live App
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* The app requires the associated hardware to see it in action so I've provided some screenshots below
