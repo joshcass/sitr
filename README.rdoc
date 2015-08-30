@@ -4,9 +4,9 @@ An IOT application that utilizes Raspberry Pi computers to stream video and prov
 
 Live Production URL: http://sitr.link
 
-== Screen Shots of Live App
+== Screen Capture of Live App
 
-The app requires the associated hardware to see it in action so I've provided a screencapture of it below
+The app requires the associated hardware to see it in action so I've provided a screen capture of it below
 
 
 http://joshcass.com/wp-content/uploads/2015/08/sitr.gif
