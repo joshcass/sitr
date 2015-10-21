@@ -1,1 +1,1 @@
-Resque.redis = ENV['REDISCLOUD_URL']
+Resque.redis = ENV['REDIS_URL']
