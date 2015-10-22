@@ -1,3 +1,3 @@
 web: bundle exec puma -C config/puma.rb
-resque: bundle exec rake environment resque:work QUEUES=* TERM_CHILD=1 RESQUE_TERM_TIMEOUT=10
+sidekiq: bundle exec sidekiq 
 clock: bundle exec clockwork lib/clock.rb

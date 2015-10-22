@@ -20,9 +20,9 @@ gem 'firebase'
 gem 'hashie'
 gem 'httparty'
 gem 'skylight', '0.7.1'
-gem 'resque'
 gem 'foreman'
 gem 'clockwork'
+gem 'sidekiq'
 
 gem 'rails_12factor', group: :production
 
