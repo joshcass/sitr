@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811174746) do
+ActiveRecord::Schema.define(version: 20151023183405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,13 +50,14 @@ ActiveRecord::Schema.define(version: 20150811174746) do
   add_index "pet_feeders", ["user_id"], name: "index_pet_feeders_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "screen_name"
-    t.string   "uid"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "time_zone"
+    t.string   "email"
+    t.string   "password_digest"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
 
   create_table "video_feeds", force: :cascade do |t|
     t.string   "location"
