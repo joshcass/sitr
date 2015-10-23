@@ -1,18 +1,10 @@
 class User < ActiveRecord::Base
-  has_many :video_feeds
-  has_many :pet_feeders
-  has_one :nest
-
-  def self.from_omniauth(auth_info)
-    if user = find_by(uid: auth_info.extra.raw_info.id_str)
-      user
-    else
-      user = create({name: auth_info.extra.raw_info.name,
-        screen_name: auth_info.extra.raw_info.screen_name,
-        uid: auth_info.extra.raw_info.id_str,
-        time_zone: auth_info.extra.raw_info.time_zone
-      })
-      user
-    end
-  end
+  has_secure_password
+  has_many :video_feeds, dependent: :destroy
+  has_many :pet_feeders, dependent: :destroy
+  has_one :nest, dependent: :destroy
+  validates :email, :time_zone, :password, presence: true
+  validates :email, uniqueness: true
+  validates_confirmation_of :password
+  validates_format_of :email, with: /.+@.+\..+/i
 end

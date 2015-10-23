@@ -8,6 +8,13 @@
         <ul id="nav-large" class="right hide-on-med-and-down">
             <li><a href="/dashboard" id="dashboard" class="tooltipped" data-position="bottom" data-delay="500" data-tooltip="Dashboard"><i class="material-icons">dashboard</i></a></li>
             <li><a href="/settings" id="settings" class="tooltipped" data-position="bottom" data-delay="500" data-tooltip="Settings"><i class="material-icons">settings</i></a></li>
+            <li>
+                <% if current_user %>
+                    <%= link_to edit_user_path(current_user), id: "edit-account", class: "tooltipped", data: {position: "bottom", delay: "500", tooltip: "Edit Account"} do %>
+                        <i class="material-icons">perm_identity</i>
+                    <% end %>
+                <% end %>
+            </li>
             <li><a href="/logout" id="logout" class="tooltipped" data-position="bottom" data-delay="500" data-tooltip="Logout"><i class="material-icons">power_settings_new</i></li>
         </ul>
         <ul id="nav-mobile" class="side-nav">

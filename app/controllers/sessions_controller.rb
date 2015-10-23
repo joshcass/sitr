@@ -2,14 +2,29 @@ class SessionsController < ApplicationController
   skip_before_action :authorize
 
   def create
-    if user = User.from_omniauth(request.env['omniauth.auth'])
-      session[:user_id] = user.id
+    user = User.find_by(email: valid_params[:email])
+    if user
+      if user.authenticate(valid_params[:password])
+        session[:user_id] = user.id
+        redirect_to dashboard_index_path
+      else
+        flash[:error] = "Login Failed"
+        redirect_to root_path
+      end
+    else
+      @user = User.new(valid_params)
+      render 'users/new'
     end
-    redirect_to dashboard_index_path
   end
 
   def destroy
     session.clear
     redirect_to root_path
+  end
+
+  private
+
+  def valid_params
+    params.require(:user).permit(:email, :password)
   end
 end

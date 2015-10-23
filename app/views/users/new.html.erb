@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="blue-grey darken-1 col s12" style="padding-bottom: 50px">
+        <div class="col s4 offset-s5">
+            <%= image_tag 'logo_large.png', style: "height: 90px;" %>
+        </div>
+        <div class="col s6 offset-s3">
+            <%= form_for @user do |f| %>
+                <div class="input-field">
+                    <%= f.label :email  %>
+                    <%= f.email_field :email  %>
+                </div>
+                <div class="input-field">
+                    <%= f.label :password  %>
+                    <%= f.password_field :password %>
+                </div>
+                <div class="input-field">
+                    <%= f.label 'Re-enter Password'  %>
+                    <%= f.password_field :password_confirmation %>
+                </div>
+                <div class="input-field">
+                    <%= f.time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones) %>
+                    <%= f.label :time_zone  %>
+                </div>
+                <%= f.submit 'Sign Up', class: "brown btn" %>
+            <% end %>
+        </div>
+    </div>
+</div>

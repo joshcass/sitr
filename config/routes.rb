@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
-  get '/auth/twitter', as: 'login'
-  get '/auth/twitter/callback', to: 'sessions#create'
+  post '/login', to: 'sessions#create'
   get '/auth/nest/callback', to: 'nest#create'
   get '/logout', to: 'sessions#destroy'
 
@@ -13,4 +12,5 @@ Rails.application.routes.draw do
   end
   resources :nest, only: [:create, :destroy]
   get '/pet_feeder/:id/feed', to: 'pet_feeders#feed', as: 'feed'
+  resources :users, only: [:create, :destroy, :edit, :update]
 end
