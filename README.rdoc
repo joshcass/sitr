@@ -2,8 +2,6 @@
 
 An IOT application that utilizes Raspberry Pi computers to stream video and provide remote control of an automated pet feeder. A Sinatra app endpoint controls the pet feeder and scheduled feedings can be programmed and triggered by the Rails application through the use of Clockwork and Resque.
 
-Live Production URL: http://sitr.link
-
 == Screen Capture of Live App
 
 The app requires the associated hardware to see it in action so I've provided a screen capture of it below
