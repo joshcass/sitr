@@ -1,4 +1,4 @@
-https://travis-ci.org/joshcass/sitr.svg?branch=master
+{<img src="https://travis-ci.org/joshcass/sitr.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/joshcass/sitr]
 
 == README
 
