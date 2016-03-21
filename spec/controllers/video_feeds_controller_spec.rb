@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe VideoFeedsController do
+  let!(:user) { User.create(email: "email@example.com", time_zone: 'UTC', password: 'password') }
+
   before(:each) do
-    @user = User.create(name: "Boba Fett", screen_name: "bobafett", uid: '1234')
-    session[:user_id] = @user.id
+    session[:user_id] = user.id
   end
 
   context '#create' do
@@ -19,7 +20,7 @@ describe VideoFeedsController do
 
   context '#update' do
     it 'can update a video feed' do
-      video_feed = @user.video_feeds.create(url: 'http://www.sweet-feed.com', location: 'My House')
+      video_feed = user.video_feeds.create(url: 'http://www.sweet-feed.com', location: 'My House')
 
       put :update, id: video_feed.id, video_feed: { url: 'http://www.lame-feed.com', location: 'My House'}
 
@@ -31,7 +32,7 @@ describe VideoFeedsController do
 
   context '#destroy' do
     it 'can destroy a video feed' do
-      video_feed = @user.video_feeds.create(url: 'http://www.sweet-feed.com', location: 'My House')
+      video_feed = user.video_feeds.create(url: 'http://www.sweet-feed.com', location: 'My House')
 
       expect{
         delete :destroy, id: video_feed.id

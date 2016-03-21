@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe FeedTime do
   before(:each) do
-    @user = User.create(name: "Boba Fett", screen_name: "bobafett", uid: '1234', time_zone: 'UTC')
+    @user = User.create(email: "email@example.com", time_zone: 'UTC', password: 'password')
     @pet_feeder = @user.pet_feeders.create(name: 'Feeder 1', url: 'http://www.example.com', last_feeding: 1.hour.ago)
     @feed_time = @pet_feeder.feed_times.create(time: 1.day.ago)
   end

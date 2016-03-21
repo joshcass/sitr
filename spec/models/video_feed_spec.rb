@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe VideoFeed do
   before(:each) do
-    @user = User.create(name: "Boba Fett", screen_name: "bobafett", uid: '1234', time_zone: 'UTC')
+    @user = User.create(email: "email@example.com", time_zone: 'UTC', password: 'password')
     @video_feed = @user.video_feeds.create(location: 'Living Room', url: 'http://www.example.com')
   end
 
@@ -32,4 +32,3 @@ describe VideoFeed do
     end
   end
 end
-

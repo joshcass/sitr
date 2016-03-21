@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe PetFeedersController do
+  let!(:user) { User.create(email: "email@example.com", time_zone: 'UTC', password: 'password') }
+
   before(:each) do
-    @user = User.create(name: "Boba Fett", screen_name: "bobafett", uid: '1234')
-    session[:user_id] = @user.id
+    session[:user_id] = user.id
   end
 
   context '#create' do
@@ -19,7 +20,7 @@ describe PetFeedersController do
 
   context '#update' do
     it 'can update a pet feeder' do
-      pet_feeder = @user.pet_feeders.create(url: 'http://www.my-feeder.com', name: 'Feeder 1')
+      pet_feeder = user.pet_feeders.create(url: 'http://www.my-feeder.com', name: 'Feeder 1')
 
       put :update, id: pet_feeder.id, pet_feeder: { url: 'http://www.another-feeder.com', name: 'Feeder 1'}
 
@@ -31,7 +32,7 @@ describe PetFeedersController do
 
   context '#destroy' do
     it 'can destroy a pet feeder' do
-      pet_feeder = @user.pet_feeders.create(url: 'http://www.my-feeder.com', name: 'Feeder 1')
+      pet_feeder = user.pet_feeders.create(url: 'http://www.my-feeder.com', name: 'Feeder 1')
 
       expect{
         delete :destroy, id: pet_feeder.id
@@ -45,7 +46,7 @@ describe PetFeedersController do
 
   context '#feed' do
     it 'can send a request to a pet feeder' do
-      pet_feeder = @user.pet_feeders.create(url: 'http://httpbin.org/post', name: 'Feeder 1', password: '' )
+      pet_feeder = user.pet_feeders.create(url: 'http://httpbin.org/post', name: 'Feeder 1', password: '' )
 
       post :feed, id: pet_feeder.id
 

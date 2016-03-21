@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'the_application', type: :feature do
   before(:each) do
-    @user = User.create(name: "Boba Fett", screen_name: "bobafett", uid: '1234', time_zone: 'UTC')
+    @user = User.create(email: "email@example.com", time_zone: 'UTC', password: 'password')
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 

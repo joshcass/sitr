@@ -27,6 +27,7 @@ gem 'sidekiq'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
+  gem 'rake'
   gem 'byebug'
   gem 'pry'
   gem 'web-console', '~> 2.0'
@@ -37,5 +38,3 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'launchy'
 end
-
-
