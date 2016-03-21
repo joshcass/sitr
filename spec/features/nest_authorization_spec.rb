@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'helpers/login_helper'
 
 describe 'the_application', type: :feature do
   before(:each) do
