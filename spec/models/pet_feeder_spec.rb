@@ -21,12 +21,7 @@ describe PetFeeder do
       pet_feeder = @user.pet_feeders.new(url: 'http://wwwexamplecom', name: '')
       expect(pet_feeder).to be_invalid
     end
-
-    it 'must have a unique name' do
-      pet_feeder = @user.pet_feeders.new(url: 'http://www.example.com', name: @pet_feeder.name)
-      expect(pet_feeder).to be_invalid
-    end
-  end
+ end
 
   context 'associations' do
     it 'belongs to a user' do

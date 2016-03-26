@@ -18,13 +18,7 @@ describe VideoFeed do
 
       expect(video_feed).to be_invalid
     end
-
-    it 'must have a unique location' do
-      video_feed = @user.video_feeds.new(location: 'Living Room', url: 'http://www.google.com')
-
-      expect(video_feed).to be_invalid
-    end
-  end
+ end
 
   context 'associations' do
     it 'belongs to a user' do

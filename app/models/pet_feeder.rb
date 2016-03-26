@@ -4,7 +4,7 @@ class PetFeeder < ActiveRecord::Base
   has_many :feed_times, dependent: :destroy
 
   validates :url, presence: true, url: true
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
 
   def feed_now
     if password.empty?
@@ -32,4 +32,3 @@ class PetFeeder < ActiveRecord::Base
     feed_times.detect { |feed_time| feed_time.time.in_time_zone(user.time_zone).strftime('%R') > Time.zone.now.in_time_zone(user.time_zone).strftime('%R') }
   end
 end
-
